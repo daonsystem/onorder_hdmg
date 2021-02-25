@@ -69,7 +69,11 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
                 MenuActivity menuActivity = new MenuActivity();
                 Log.d("daon", "aass = "+mData.get(position).getPrice());
                 Log.d("daon", "aass = "+mData.get(position).getCount());
-                menuActivity.removeMenu((Integer.parseInt(mData.get(position).getPrice())));
+//                if (mData.get(position).getName().contains("흑돼지")) {
+//                    menuActivity.removeMenu((Integer.parseInt(mData.get(position).getPrice())));
+//                }else{
+                    menuActivity.removeMenu((Integer.parseInt(mData.get(position).getPrice()))*Integer.parseInt(mData.get(position).getCount()));
+//                }
                 mData.remove(position);
                 notifyDataSetChanged();
 

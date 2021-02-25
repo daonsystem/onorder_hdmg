@@ -211,13 +211,17 @@ public class DetailFragment extends Fragment {
                         name = name+("(보)");
                         Log.d("daon_test", "count = "+detailCount.getText().toString());
                         String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
-                        ((MenuActivity) getActivity()).callItem(name, d_price, url, code, detailCount.getText().toString());
+                        for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                            ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                        }
                         sendOpt();
                         ((MenuActivity) getActivity()).closeDetail(position);
                     }else{
                         name = name+("(매)");
                         String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
-                        ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, detailCount.getText().toString());
+                        for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                            ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                        }
                         sendOpt();
                         ((MenuActivity) getActivity()).closeDetail(position);
                     }
@@ -225,19 +229,24 @@ public class DetailFragment extends Fragment {
                     if (name.contains("한라산") || name.equals("참이슬") || name.equals("진로")) {
                         if (radio1.isChecked()) {
                             name = name+("-시원한 소주");
-                            ((MenuActivity) getActivity()).callItem(name, price, url, code, detailCount.getText().toString());
+                            for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                                ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                            }
                             sendOpt();
                             ((MenuActivity) getActivity()).closeDetail(position);
                         }else{
                             name = name+("-슬러시 소주");
-                            ((MenuActivity) getActivity()).callItem(name, price, url, code, detailCount.getText().toString());
-                            sendOpt();
+                            for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                                ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                            }                            sendOpt();
                             ((MenuActivity) getActivity()).closeDetail(position);
                         }
 
                     }else {
                         String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
-                        ((MenuActivity) getActivity()).callItem(name, d_price, url, code, detailCount.getText().toString());
+                        for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                            ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                        }
                         ((MenuActivity) getActivity()).closeDetail(position);
                     }
                 }
@@ -874,47 +883,65 @@ public class DetailFragment extends Fragment {
     public void sendOpt(){
         if (opt1.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt1)* 1000);
-            ((MenuActivity) getActivity()).callItem("공기밥", price, url, code, str_opt1);
+            for (int i = 0; i < Integer.parseInt(str_opt1); i++) {
+                ((MenuActivity) getActivity()).callItem("공기밥", "1000", url, code, "1");
+            }
         }
         if (opt2.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt2)* 1000);
+            for (int i = 0; i < Integer.parseInt(str_opt2); i++) {
 
-            ((MenuActivity) getActivity()).callItem("떡사리", price, url, code, str_opt2);
+                ((MenuActivity) getActivity()).callItem("떡사리", "1000", url, code, "1");
+            }
         }
         if (opt3.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt3)* 2000);
+            for (int i = 0; i < Integer.parseInt(str_opt3); i++) {
 
-            ((MenuActivity) getActivity()).callItem("쫄면사리", price, url, code, str_opt3);
+                ((MenuActivity) getActivity()).callItem("쫄면사리", "2000", url, code, "1");
+            }
         }
         if (opt4.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt4)* 2000);
+            for (int i = 0; i < Integer.parseInt(str_opt4); i++) {
 
-            ((MenuActivity) getActivity()).callItem("우동사리", price, url, code, str_opt4);
+                ((MenuActivity) getActivity()).callItem("우동사리", "2000", url, code, "1");
+            }
         }
         if (opt5.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt5)* 2000);
+            for (int i = 0; i < Integer.parseInt(str_opt5); i++) {
 
-            ((MenuActivity) getActivity()).callItem("비엔나사리", price, url, code, str_opt5);
+                ((MenuActivity) getActivity()).callItem("비엔나사리", "2000", url, code, "1");
+            }
         }
         if (opt6.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt6)* 1000);
 
-            ((MenuActivity) getActivity()).callItem("라면사리", price, url, code, str_opt6);
+            for (int i = 0; i < Integer.parseInt(str_opt6); i++) {
+                ((MenuActivity) getActivity()).callItem("라면사리", "1000", url, code, "1");
+            }
         }
         if (opt7.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt7)* 2000);
+            for (int i = 0; i < Integer.parseInt(str_opt7); i++) {
 
-            ((MenuActivity) getActivity()).callItem("감자당면", price, url, code, str_opt7);
+                ((MenuActivity) getActivity()).callItem("감자당면", "2000", url, code, "1");
+            }
         }
         if (opt8.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt8)* 1000);
+            for (int i = 0; i < Integer.parseInt(str_opt8); i++) {
 
-            ((MenuActivity) getActivity()).callItem("콩나물추가", price, url, code, str_opt8);
+                ((MenuActivity) getActivity()).callItem("콩나물추가", "1000", url, code, "1");
+            }
         }
         if (opt9.isChecked()){
             String price = String.valueOf(Integer.parseInt(str_opt9)* 1000);
+            for (int i = 0; i < Integer.parseInt(str_opt9); i++) {
 
-            ((MenuActivity) getActivity()).callItem("숙주나물추가", price, url, code, str_opt9);
+                ((MenuActivity) getActivity()).callItem("숙주나물추가", "1000", url, code, "1");
+            }
         }
     }
 }
