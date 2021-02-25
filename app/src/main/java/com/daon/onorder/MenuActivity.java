@@ -750,12 +750,13 @@ public class MenuActivity extends AppCompatActivity{
 
     public void callItem(String menu, String price, String url, String code, String count) {
 
-        Log.d("daon", "call = " + count);
+        Log.d("daon", "call = " + menu);
         OrderModel order = new OrderModel();
         boolean isCount = false;
         if (order_list.size() > 0) {
             for (int i = 0; i < order_list.size(); i++) {
-                if (order_list.get(i).getName() == menu) {
+                Log.d("daon_test","name = "+order_list.get(i).getName());
+                if (order_list.get(i).getName().equals(menu)) {
                     order.setCount(String.valueOf(Integer.parseInt(order_list.get(i).getCount()) + Integer.parseInt(count)));
                     order.setName(order_list.get(i).getName());
                     order.setPrice(price);
