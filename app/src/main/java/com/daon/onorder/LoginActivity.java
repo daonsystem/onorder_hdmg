@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                        String str_id = "hdmg_test";
+                        String str_id = "hdmg_st";
                         String str_pass = "1234";
                         Retrofit retrofit = new Retrofit.Builder()
                                 .baseUrl("http://15.164.232.164:5000/")
