@@ -801,6 +801,8 @@ public class MenuActivity extends AppCompatActivity{
     }
 
     public void removeMenu(int price) {
+        Log.d("daon_test", "allprice ="+all_price);
+        Log.d("daon_test", "allprice ="+price);
         all_price = all_price - price;
 
         if (all_price > 0) {

@@ -67,8 +67,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
             @Override
             public void onClick(View v) {
                 MenuActivity menuActivity = new MenuActivity();
-                Log.d("daon", "aass = "+(Integer.parseInt(mData.get(position).getPrice()))*(Integer.parseInt(mData.get(position).getCount())));
-                menuActivity.removeMenu((Integer.parseInt(mData.get(position).getPrice()))*(Integer.parseInt(mData.get(position).getCount())));
+                Log.d("daon", "aass = "+mData.get(position).getPrice());
+                Log.d("daon", "aass = "+mData.get(position).getCount());
+                menuActivity.removeMenu((Integer.parseInt(mData.get(position).getPrice())));
                 mData.remove(position);
                 notifyDataSetChanged();
 

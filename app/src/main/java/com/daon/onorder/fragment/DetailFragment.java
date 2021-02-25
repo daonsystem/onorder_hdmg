@@ -209,6 +209,7 @@ public class DetailFragment extends Fragment {
                 if (name.contains("흑돼지")){
                     if (radio1.isChecked()) {
                         name = name+("(보)");
+                        Log.d("daon_test", "count = "+detailCount.getText().toString());
                         String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
                         ((MenuActivity) getActivity()).callItem(name, d_price, url, code, detailCount.getText().toString());
                         sendOpt();
