@@ -8,6 +8,7 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.daon.onorder.GlideApp;
@@ -207,23 +209,30 @@ public class DetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (name.contains("흑돼지")){
-                    if (radio1.isChecked()) {
-                        name = name+("(보)");
-                        Log.d("daon_test", "count = "+detailCount.getText().toString());
-                        String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
-                        for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
-                            ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                    if (!detailCount.getText().toString().equals("1")) {
+                        if (radio1.isChecked()) {
+                            name = name + ("(보)");
+                            Log.d("daon_test", "count = " + detailCount.getText().toString());
+                            String d_price = String.valueOf(Integer.parseInt(dPrice) * Integer.parseInt(detailCount.getText().toString()));
+                            for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                                ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                            }
+                            sendOpt();
+                            ((MenuActivity) getActivity()).closeDetail(position);
+                        } else {
+                            name = name + ("(매)");
+                            String d_price = String.valueOf(Integer.parseInt(dPrice) * Integer.parseInt(detailCount.getText().toString()));
+                            for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
+                                ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
+                            }
+                            sendOpt();
+                            ((MenuActivity) getActivity()).closeDetail(position);
                         }
-                        sendOpt();
-                        ((MenuActivity) getActivity()).closeDetail(position);
                     }else{
-                        name = name+("(매)");
-                        String d_price = String.valueOf(Integer.parseInt(dPrice)*Integer.parseInt(detailCount.getText().toString()));
-                        for (int i = 0; i < Integer.parseInt(detailCount.getText().toString()); i++) {
-                            ((MenuActivity) getActivity()).callItem(name, dPrice, url, code, "1");
-                        }
-                        sendOpt();
-                        ((MenuActivity) getActivity()).closeDetail(position);
+                        Toast toast = Toast.makeText(getContext(),"2인분부터 주문 가능합니다.", Toast.LENGTH_LONG);
+                        toast.setGravity(Gravity.CENTER, 0, 0);
+                        toast.show();
+
                     }
                 }else {
                     if (name.contains("한라산") || name.equals("참이슬") || name.equals("진로")) {
@@ -877,6 +886,12 @@ public class DetailFragment extends Fragment {
             }
         }else{
 
+        }
+        if (name.contains("숙주")){
+            opt8.setVisibility(View.GONE);
+        }
+        if (name.contains("콩나물")){
+            opt9.setVisibility(View.GONE);
         }
     }
 
