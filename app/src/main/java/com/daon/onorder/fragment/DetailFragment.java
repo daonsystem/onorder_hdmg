@@ -73,6 +73,7 @@ public class DetailFragment extends Fragment {
 
     ImageView menuImg;
     TextView nameText;
+    TextView nameTextsub;
     TextView priceText;
     TextView infoText;
     TextView close;
@@ -139,8 +140,11 @@ public class DetailFragment extends Fragment {
         radio2 = RootView.findViewById(R.id.l_btn2);
         radioText = RootView.findViewById(R.id.radio_text);
         check_layout = RootView.findViewById(R.id.check_group);
+        nameTextsub = RootView.findViewById(R.id.detailfragment_text_name_sub);
         if (name.contains("흑돼지")){
             check_layout.setVisibility(View.VISIBLE);
+            nameTextsub.setVisibility(View.VISIBLE);
+
         }
 
         radioGroup = RootView.findViewById(R.id.radioGroup);
@@ -209,7 +213,7 @@ public class DetailFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 if (name.contains("흑돼지")){
-                    if (!detailCount.getText().toString().equals("1")) {
+
                         if (radio1.isChecked()) {
                             name = name + ("(보)");
                             Log.d("daon_test", "count = " + detailCount.getText().toString());
@@ -228,12 +232,7 @@ public class DetailFragment extends Fragment {
                             sendOpt();
                             ((MenuActivity) getActivity()).closeDetail(position);
                         }
-                    }else{
-                        Toast toast = Toast.makeText(getContext(),"2인분부터 주문 가능합니다.", Toast.LENGTH_LONG);
-                        toast.setGravity(Gravity.CENTER, 0, 0);
-                        toast.show();
 
-                    }
                 }else {
                     if (name.contains("한라산") || name.equals("참이슬") || name.equals("진로")) {
                         if (radio1.isChecked()) {

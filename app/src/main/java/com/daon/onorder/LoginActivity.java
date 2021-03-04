@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                        String str_id = "hdmg_test";
+                        String str_id = "hdmg";
                         String str_pass = "1234";
                         Retrofit retrofit = new Retrofit.Builder()
                                 .baseUrl("http://15.164.232.164:5000/")
@@ -125,7 +125,7 @@ public class LoginActivity extends AppCompatActivity {
                                     if (String.valueOf(response.body().get("StatusCode")).equals("200")) {
                                         String fcm = String.valueOf(response.body().get("Message")).replace("\"", "");
                                         editor.putString("id", str_id);
-                                        editor.putString("table", "9");
+                                        editor.putString("table", "11");
                                         editor.putString("fcm", fcm);
                                         editor.putString("storecode", String.valueOf(response.body().get("StoreCode")).replace("\"",
                                                 ""));
